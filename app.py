@@ -19,8 +19,8 @@ def hello_world():
         "grant_type": "authorization_code",
         "scope": "check",
         "code":request.args.get("code"),
-        "redirect_uri": "https://checkbook-facebookbot.herokuapp.com/redirect",
-        "client_secret": "9dee4ce1dce741d797450b2e0e1ab837"}
+        "redirect_uri": "https://sandbox.checkbook-facebookbot.herokuapp.com/redirect",
+        "client_secret": "nWiQFp9iCGciZ8X1d62PTgNrosyXe3"}
     response = requests.post("https://checkbook.io/oauth/token", params)
     print(response.json());
     return 'Hello, World!'
