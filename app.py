@@ -9,9 +9,18 @@
 # print(response.text)
 
 from flask import Flask, request
+import requests
 app = Flask(__name__)
 
 @app.route('/redirect', methods=['GET'])
 def hello_world():
     print(request.args.get("code"))
+    params = {"client_id":"5633b82026504602837d70cf0a84323a",
+        "grant_type": "authorization_code",
+        "scope": "check",
+        "code":request.args.get("code"),
+        "redirect_uri": "https://checkbook-facebookbot.herokuapp.com/redirect",
+        "client_secret": "nWiQFp9iCGciZ8X1d62PTgNrosyXe3"}
+    response = requests.post("https://checkbook.io/oauth/token", params)
+    print(response)
     return 'Hello, World!'
