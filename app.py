@@ -8,10 +8,10 @@
 # response = requests.request("GET", url, headers=headers)
 # print(response.text)
 
-from flask import Flask
+from flask import Flask, request
 app = Flask(__name__)
 
 @app.route('/redirect', methods=['GET'])
 def hello_world():
-    print("Here");
+    print(request.args.get("access_token"))
     return 'Hello, World!'
