@@ -13,4 +13,5 @@ app = Flask(__name__)
 
 @app.route('/redirect', methods=['GET'])
 def hello_world():
+    print("Here");
     return 'Hello, World!'
