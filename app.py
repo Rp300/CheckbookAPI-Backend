@@ -8,7 +8,7 @@
 # response = requests.request("GET", url, headers=headers)
 # print(response.text)
 
-from flask import Flask, request
+from flask import Flask, request, jsonify
 import requests
 app = Flask(__name__)
 
@@ -19,8 +19,8 @@ def hello_world():
         "grant_type": "authorization_code",
         "scope": "check",
         "code":request.args.get("code"),
-        "redirect_uri": "https://checkbook-facebookbot.herokuapp.com/redirect",
+        "redirect_uri": "https://checkbook-messenger-bot.herokuapp.com/redirect",
         "client_secret": "nWiQFp9iCGciZ8X1d62PTgNrosyXe3"}
     response = requests.post("https://sandbox.checkbook.io/oauth/token", params)
     print(response.json());
-    return 'Hello, World!'
+    return jsonify(response["access_token"])
