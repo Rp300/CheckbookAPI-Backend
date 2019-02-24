@@ -20,7 +20,7 @@ def hello_world():
         "scope": "check",
         "code":request.args.get("code"),
         "redirect_uri": "https://checkbook-facebookbot.herokuapp.com/redirect",
-        "client_secret": "nWiQFp9iCGciZ8X1d62PTgNrosyXe3"}
+        "client_secret": "9dee4ce1dce741d797450b2e0e1ab837"}
     response = requests.post("https://checkbook.io/oauth/token", params)
     print(response)
     return 'Hello, World!'
