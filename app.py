@@ -13,5 +13,5 @@ app = Flask(__name__)
 
 @app.route('/redirect', methods=['GET'])
 def hello_world():
-    print(request.args.get("access_token"))
+    print(request.args.get("code"))
     return 'Hello, World!'
